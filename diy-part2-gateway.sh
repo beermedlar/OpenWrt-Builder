@@ -133,9 +133,6 @@ config_package_add autocore
 config_package_add lm-sensors-detect
 # upnp
 config_package_add luci-app-upnp
-## mosdns
-config_package_add v2ray-geodata
-config_package_add luci-app-mosdns
 # wget-ssl
 config_package_add wget-sll
 # curl
@@ -162,6 +159,9 @@ config_package_del luci-app-passwall_INCLUDE_Shadowsocks_Rust_Client
 config_package_del luci-app-passwall_INCLUDE_Shadowsocks_Rust_Server
 config_package_del luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client
 config_package_del luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Server
+## mosdns
+config_package_add v2ray-geodata
+config_package_add luci-app-mosdns
 
 # 镜像生成
 # 修改分区大小
