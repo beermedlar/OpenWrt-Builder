@@ -1,34 +1,6 @@
 # OpenWrt-Builder
 基于 [ImmortalWrt](https://github.com/immortalwrt/immortalwrt) 定制编译的主路由、旁路网关，跟随 23.05 分支更新自动编译。
 
-# 主路由
-***支持 4/5G 模块拨号上网。***
-
-## 定制内容
-### 精简
-1. 精简全部音频组件。
-
-### 添加
-1. 升级 golang 版本（geodata、xray 等依赖高版本 go）。
-2. 更换 argon 主题。
-3. 添加 ttyd 终端。
-4. 添加 docker 服务。
-5. 添加 upnp 服务。
-6. 添加 kms 服务。
-7. 添加 passwall。
-8. 添加 usb、pci 4/5G 模块拨号、短信、基站锁定等功能。
-9. 添加多功能定时任务。
-10. 添加 iStore 应用市场。
-
-## 安装
-此处不再赘述。
-
-## 配置
-1. 默认账号 `root`，密码 `password`。
-2. 默认 LAN 口 IP 为 `192.168.3.1`。通过 `/etc/config/network` 修改，重启后生效。
-3. 推荐单独部署高级 DNS 服务。可参考 [NestingDNS](https://github.com/217heidai/NestingDNS)，一款尝试 AdGuardHome、MosDNS、SmartDNS 套娃使用最佳实践的 DNS 服务。
-
-
 # 旁路网关
 ***仅能虚拟机安装（精简了实体卡驱动）。***
 
@@ -47,6 +19,7 @@
 3. 添加 upnp 服务。
 4. 添加定时重启。
 5. 添加 passwall。
+6. 添加 mosdns
 
 ## 安装
 注意：
@@ -123,7 +96,7 @@ WEB 页面无法直接创建 OpenWrt LXC 容器，此处需要使用 shell 命�
 
 ## 配置
 1. 默认账号 `root`，密码 `password`。
-2. 默认 LAN 口 IP 为 `192.168.1.5`。通过 `/etc/config/network` 修改，重启后生效。
+2. 默认 LAN 口 IP 为 `10.10.10.2`。通过 `/etc/config/network` 修改，重启后生效。
 3. LAN 口网关修改为主路由 IP 地址。
 4. LAN 口 DNS 修改为主路由 IP 地址。推荐单独部署高级 DNS 服务，将旁路网关的 DNS 指过去即可。可参考 [NestingDNS](https://github.com/217heidai/NestingDNS)，一款尝试 AdGuardHome、MosDNS、SmartDNS 套娃使用最佳实践的 DNS 服务。
 5. 作为旁路网关，需关闭 LAN 口 DHCP，由主路由进行 DHCP。（如开启 DHCP 服务，则变为旁路路由模式）

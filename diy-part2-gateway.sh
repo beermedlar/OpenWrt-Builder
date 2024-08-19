@@ -58,7 +58,7 @@ function clean_packages(){
 sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.::0:99999:7:::/g' package/base-files/files/etc/shadow
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.1.5/g' package/base-files/files/bin/config_generate
+sed -i 's/10.10.10.1/10.10.10.2/g' package/base-files/files/bin/config_generate
 
 # Modify default theme
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
@@ -131,10 +131,15 @@ config_package_add coremark
 # autocore + lm-sensors-detect： cpu 频率、温度
 config_package_add autocore
 config_package_add lm-sensors-detect
-# nano 替代 vim
-config_package_add nano
 # upnp
 config_package_add luci-app-upnp
+## mosdns
+config_package_add v2ray-geodata
+config_package_add luci-app-mosdns
+# wget-ssl
+config_package_add wget-sll
+# curl
+config_package_add curl
 # autoreboot
 config_package_add luci-app-autoreboot
 
